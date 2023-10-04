@@ -27,18 +27,57 @@ function tips()
     var base = parseInt(document.getElementById("baseAmount").value);
     var tips = parseInt(document.getElementById("tipPercent").value);
     var myOutput="" ;
+    var toShow="";
     myOutput = "Tips are: "+tips+"%"+ " is "+(base*tips)/100+";";
     for(i=1;i<=4;i++)
     {
         tips = tips+4;
         price = (base*tips)/100;
         console.log('price===>',price);
-        myOutput = myOutput + tips + "%" + " is "+ price + ";" + "\n"
-    }
-    document.getElementById("result").innerHTML = myOutput;
+        toShow = toShow + tips + "%" + " is "+ price + ";" 
 
-    
+    }
+    myOutput = myOutput + toShow;
+    document.getElementById("result").innerHTML = myOutput; 
 }
+</script>
+<form>
+    <input type="radio" id="red" name="color" value="+">
+    <label for="sum">sum</label></br>
+  
+    <input type="radio" id="blue" name="color" value="-">
+    <label for="diff">diff</label></br>
+  
+    <input type="radio" id="green" name="color" value="*">
+    <label for="mult">Product</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Get values ">
+  </form>
+
+  <p id="radioSection">This will be replaced</p>
+  <script>
+  function chooseOp(){
+    var base= parseInt(document.getElementById('baseAmount').value);
+    var tip=parseInt(document.getElementById('tipPercent').value);
+    var out=0;
+
+    if(document.getElementById('red').checked)
+    {  
+        out=base+tip;
+    }
+
+    if(document.getElementById('blue').checked)
+    {  
+        out=base-tip;
+    }
+
+    if(document.getElementById('green').checked)
+    {  
+        out=base*tip;
+    }
+
+    document.getElementById("radioSection").innerHTML = out;
+} 
 </script>
 
 </body>

@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html>
- 
+ <head>
+    <title>cruise</title>
+ </head>
 <body>
 
-<h2>Getting input</h2>
+<h2>Hema goes on a cruise</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <input type ="checkbox" id="check1" name="check1" value="True"> 
+    <label for="check1">Shares Cabin</label> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <input type ="checkbox" id="check2" name="check1" value="True"> 
+    <label for="check2">Breakfast</label> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="checkbox" id="check3" name="check3" value="False"> 
+    <label for="check3">Pool Pass</label> <br>
+
+    <input type = "button" onclick="selectCruise()" value = "Get values from form">
 </form>
 
-
-<p id="result">This text will be replaced </p>
+<p id="select">This text will be replaced </p>
 
 <script> 
+let my_cruise={};
+function selectCruise()
+{
+    var SharesCabin = document.getElementById('check1').checked;
+    var Breakfast = document.getElementById('check2').checked;
+    var PoolPass = document.getElementById('check3').checked;
+    my_cruise.sharescabin = SharesCabin;
+    my_cruise.breakfast= Breakfast;
+    my_cruise.poolpass = PoolPass;
+    document.getElementById("select").innerHTML=JSON.stringify(my_cruise);
+}
+</script>
+</form>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+<input type ="text" id="days" name="check1"  value="days" checked> 
+<label for="check1">Enter the number of days </label> <br>
+
+<input type ="text" id="price" name="check2" value="true" checked> 
+<label for="check2">Enter price </label> <br>
+
+<input type="button" onclick="updateCruise()" value="Get values from form">
+</form>
+<p id="update">This text will be replaced </p>
+<script>  
+function updateCruise() {
+     var days = document.getElementById('days').value;
+     var price = document.getElementById('price').value;
+     my_cruise["days"]=days;
+     my_cruise["price"]=price;
+     document.getElementById("update").innerHTML=JSON.stringify(my_cruise);
 }
 </script>
 

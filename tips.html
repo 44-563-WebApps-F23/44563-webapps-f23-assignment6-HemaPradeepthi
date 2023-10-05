@@ -42,16 +42,15 @@ function tips()
 }
 </script>
 <form>
-    <input type="radio" id="red" name="color" value="sum">
+    <input type="radio" id="red" name="color" value="sum" onclick="chooseOp()">
     <label for="sum">sum</label></br>
   
-    <input type="radio" id="blue" name="color" value="difference">
+    <input type="radio" id="blue" name="color" value="difference" onclick="chooseOp()">
     <label for="diff">diff</label></br>
   
-    <input type="radio" id="green" name="color" value="product">
+    <input type="radio" id="green" name="color" value="product" onclick="chooseOp()">
     <label for="mult">Product</label></br>
 
-    <input type="button" onclick="chooseOp()" value="Get values ">
   </form>
 
   <p id="radioSection">This will be replaced</p>
